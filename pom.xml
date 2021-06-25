@@ -12,7 +12,7 @@
 	<artifactId>negative</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>negative</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Project of 'Negative' app for CodersLab final test</description>
 	<properties>
 		<java.version>16</java.version>
 	</properties>
@@ -53,6 +53,15 @@
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
 		</dependency>
 	</dependencies>
 
