@@ -3,6 +3,7 @@ package com.github.wuangmai.negative.model;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Entity(name = "likes")
 @Getter @Setter
@@ -12,7 +13,10 @@ public class Like {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true, length = 50)
+    @NotBlank
     private String name;
+
+    @NotBlank
+    private String category;
 
 }
