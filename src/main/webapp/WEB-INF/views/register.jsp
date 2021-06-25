@@ -24,7 +24,7 @@
     <div class="field">
         <label class="label">Email</label>
         <div class="control has-icons-left">
-            <form:input path="email" cssClass="input" type="text" placeholder="Adres email"/>
+            <form:input path="email" cssClass="input" type="email" placeholder="Adres email"/>
             <span class="icon is-small is-left">
             <i class="fas fa-envelope-open"></i>
         </span>
@@ -41,8 +41,7 @@
     </div>
     <div class="field">
         <p class="control">
-            <form:button name="register" id="register" type="submit"
-                         cssClass="button is-success">Zarejestruj!</form:button>  <%-- nie działa stylowanie :( --%>
+            <button type="submit" class="button is-success" name="register" id="register">Zarejestruj!</button>
         </p>
     </div>
 </form:form>
