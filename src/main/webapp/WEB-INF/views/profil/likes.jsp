@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -10,22 +11,14 @@
 </head>
 <body>
 
-<form name="likes" method="post" class="column">
-    <div class="field">
-        <label class="label" for="political">Partia polityczna</label>
-        <div class="control">
-            <div class="select">
-                <select name="political" id="political">
-                    <option>Wybierz:</option>
-                    <c:forEach items="${political}" var="political">
-                        <option>${political.name}</option>
-                    </c:forEach>
-                </select>
-                <button type="submit" class="button is-success">Zapisz</button>
-            </div>
-        </div>
-    </div>
-</form>
+<form:form modelAttribute="like" method="post">
+    <form:select path="name" items="${allLikes}" itemLabel="name" itemValue="name"/>
+    <form:hidden path="id"/>
+    <form:hidden path="category" value="political"/>
+
+
+    <form:button type="submit">Zapisz</form:button>
+</form:form>
 
 </body>
 </html>

@@ -8,4 +8,5 @@ import java.util.List;
 public interface LikeRepository extends JpaRepository<Like, Long> {
 
     List<Like> findAllByCategory(String category);
+    Like findLikeByName(String name);
 }

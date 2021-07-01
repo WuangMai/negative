@@ -30,6 +30,4 @@ public class CustomUserDetailsService implements org.springframework.security.co
                 ))
                 .orElseThrow(() -> new UsernameNotFoundException("User with email " + email + " not found"));
     }
-
-
 }
