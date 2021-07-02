@@ -13,8 +13,8 @@
 
 <form method="post" action="/profil/likes">
     <select name="political" id="political">
-        <c:forEach items="${allPoliticalLikes}" var="p">
-            <option value="${p.name}">${p.name}</option>
+        <c:forEach items="${allPoliticalLikes}" var="political">
+            <option value="${political.name}">${political.name}</option>
         </c:forEach>
     </select>
 
@@ -24,6 +24,12 @@
         </c:forEach>
     </select>
         <input type="submit" value="Zapisz">
+
+    <select name="vaccines" id="vaccines">
+        <c:forEach items="${allVaccinesLikes}" var="vaccines">
+            <option value="${vaccines.name}">${vaccines.name}</option>
+        </c:forEach>
+    </select>
 
 </form>
 

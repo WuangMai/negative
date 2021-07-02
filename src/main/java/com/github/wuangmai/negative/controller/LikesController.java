@@ -55,11 +55,15 @@ public class LikesController {
     }
 
     @PostMapping
-    public String setLikesPage(Principal principal, @RequestParam String political, @RequestParam String earth){
+    public String setLikesPage(Principal principal,
+                               @RequestParam String political,
+                               @RequestParam String earth,
+                               @RequestParam String vaccines){
         List<Like> likes = new ArrayList<>();
 
         likes.add(lk.findLikeByName(political));
         likes.add(lk.findLikeByName(earth));
+        likes.add(lk.findLikeByName(vaccines));
 
         String name = principal.getName();
 
