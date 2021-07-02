@@ -34,7 +34,7 @@
                     <a href="/profil/likes" class="button is-link">Ustaw preferencje</a>
                 </p>
                 <p class="field">
-                    <a href="/profil/logout" class="button is-danger">Wyloguj się</a>
+                    <a href="<c:url value="/logout" />" class="button is-danger">Wyloguj się</a>
                 </p>
             </div>
         </div>
