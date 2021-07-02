@@ -39,16 +39,14 @@
                     </div>
                 </div>
 
-
-                <div class="field">
-                    <div class="field is-grouped">
+                    <div class="field">
                         <p class="control">
-                            <button type="submit" class="button is-success is-" name="login" id="login">Zaloguj!</button>
-                            <a href="/register" class="button is-warning">Rejestracja</a>
+                            <button type="submit" class="button is-success is-" name="login" id="login">Zaloguj!
+                            </button>
                         </p>
+                        <br/>
+                            <a href="/register" class="button is-warning">Rejestracja</a>
                     </div>
-                </div>
-
             </form>
         </div>
     </div>

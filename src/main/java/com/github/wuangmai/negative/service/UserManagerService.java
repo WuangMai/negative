@@ -22,7 +22,7 @@ public class UserManagerService {
     public void registerUser(User user){
         String encodedPw = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPw);
-        user.setRole("USER_ROLE");
+        user.setRole("ROLE_USER");
         user.setPoints(1000);
         userRepository.save(user);
     }

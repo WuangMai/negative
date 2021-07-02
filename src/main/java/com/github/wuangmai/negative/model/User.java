@@ -34,11 +34,10 @@ public class User {
     @Column(columnDefinition = "integer default 1000 not null")
     private int points;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany()
     @JoinTable(name = "users_likes",
     joinColumns = @JoinColumn(name = "user_id"),
     inverseJoinColumns = @JoinColumn(name = "like_id"))
-    @NotEmpty
     private List<Like> likes = new ArrayList<>();
 
     private String role;
