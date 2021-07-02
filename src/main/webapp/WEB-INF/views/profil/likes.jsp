@@ -11,14 +11,37 @@
 </head>
 <body>
 
-<form:form modelAttribute="like" method="post">
-    <form:select path="name" items="${allLikes}" itemLabel="name" itemValue="name"/>
-    <form:hidden path="id"/>
-    <form:hidden path="category" value="political"/>
+<form method="post" action="/profil/likes">
+    <select name="political" id="political">
+        <c:forEach items="${allPoliticalLikes}" var="p">
+            <option value="${p.name}">${p.name}</option>
+        </c:forEach>
+    </select>
+
+    <select name="earth" id="earth">
+        <c:forEach items="${allEarthShapeLikes}" var="earth">
+            <option value="${earth.name}">${earth.name}</option>
+        </c:forEach>
+    </select>
+        <input type="submit" value="Zapisz">
+
+</form>
 
 
-    <form:button type="submit">Zapisz</form:button>
-</form:form>
+<%--<div class="field">--%>
+<%--    <label class="label" >Partia polityczna</label>--%>
+<%--    <div class="control">--%>
+<%--        <div class="select">--%>
+<%--            <form:form modelAttribute="like" method="post">--%>
+<%--                <form:select path="name" items="${allEarthShapeLikes}" itemLabel="name" itemValue="name"/>--%>
+<%--                <form:hidden path="id"/>--%>
+<%--                <form:hidden path="category" value="political"/>--%>
+<%--                <form:button type="submit">Zapisz</form:button>--%>
+<%--            </form:form>--%>
+<%--        </div>--%>
+<%--    </div>--%>
+<%--</div>--%>
+
 
 </body>
 </html>

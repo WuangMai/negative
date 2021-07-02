@@ -6,6 +6,7 @@ import com.github.wuangmai.negative.repository.LikeRepository;
 import com.github.wuangmai.negative.repository.UserRepository;
 import com.sun.xml.bind.v2.TODO;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpRequest;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.Transient;
 import org.springframework.security.core.annotation.CurrentSecurityContext;
@@ -13,10 +14,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.security.Principal;
@@ -39,21 +37,29 @@ public class LikesController {
         this.userRepository = userRepository;
     }
 
+    @ModelAttribute("allPoliticalLikes")
+    public List<Like> PoliticalLikes() {return lk.findAllByCategory("political");}
+
+    @ModelAttribute("allEarthShapeLikes")
+    public List<Like> earthShapeLikes() {return lk.findAllByCategory("earth shape");}
+
+    @ModelAttribute("allVaccinesLikes")
+    public List<Like> vaccinesLikes() {return lk.findAllByCategory("vaccines");}
+
     @ModelAttribute("allLikes")
-    public List<Like> likes() {return lk.findAll();}
+    public List<Like> allLikes(){return  lk.findAll();}
 
     @GetMapping
-    public String showLikesPage(Model model){
-        model.addAttribute("like", new Like());
-
+    public String showLikesPage(){
         return "profil/likes";
     }
 
     @PostMapping
-    public String setLikesPage(@Valid Like like, Principal principal){
+    public String setLikesPage(Principal principal, @RequestParam String political, @RequestParam String earth){
         List<Like> likes = new ArrayList<>();
-        Like newLike = lk.findLikeByName(like.getName());
-        likes.add(newLike);
+
+        likes.add(lk.findLikeByName(political));
+        likes.add(lk.findLikeByName(earth));
 
         String name = principal.getName();
 
