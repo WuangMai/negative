@@ -9,7 +9,7 @@
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </head>
 <body>
-<div class="container is-fluid">
+<div class="hero is-fluid">
     <div class="notification is-primary">
         <h1 class="title is-1"><strong>PROFIL</strong></h1>
     </div>
