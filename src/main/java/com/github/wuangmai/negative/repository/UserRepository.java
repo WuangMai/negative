@@ -26,4 +26,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
     List<Long> findMostOppositeLikesIdIfNull(Long likeId);
 
     User findFirstUserByLikesContains(Like like);
+
+    List<User> findAllByLikesIn(List<Like> likes);
 }

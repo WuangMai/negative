@@ -8,7 +8,8 @@
 </head>
 <body>
 
-<div> nazwa przeciwnika: ${opponent.name}</div>
+
+<div> Nazwa przeciwnika: ${opponent.name} </div>
 
 </body>
 </html>
