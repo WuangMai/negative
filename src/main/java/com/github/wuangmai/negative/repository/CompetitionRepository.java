@@ -7,6 +7,8 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface CompetitionRepository extends JpaRepository<Competition, Long> {
+
+    //TODO To jest niepotrzebne, w repozytoriach jest metoda findAll() już gotowa
     @Query("select competition from competitions")
     List<Competition> findAllCompetitions();
     List<Competition> findAllByCompetitionNotNull();

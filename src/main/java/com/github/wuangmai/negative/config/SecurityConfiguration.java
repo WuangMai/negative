@@ -21,6 +21,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/login").permitAll()
                 .antMatchers("/").permitAll()
                 .antMatchers("/profil", "/profil/*", "/profil/").hasRole("USER")
+                //TODO Tego nigdy nie robimy - zabezpieczenia na grupach ścieżek, "odbezpieczenia" tylko na konkretnych
                 .antMatchers("/*").permitAll()
                 .anyRequest().authenticated()
                 .and()

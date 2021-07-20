@@ -13,6 +13,14 @@ public interface UserRepository extends JpaRepository<User, Long> {
     Optional<User> findByEmail(String email);
     User findByName(String name);
 
+    //TODO Te zapytania dotyczą encji Negative i powinny być w NegativeRepository
+    //TODO Użyć Pageable zamiast nativeQuery
+    /*
+        List<Negative> findAllByFirstLikeId(Long id, Pageable page)
+
+        // W kontrolerze:
+
+     */
     @Query(value = "select second_like_id_id from negatives where first_like_id_id = ?1 order by hate desc limit 1",nativeQuery = true)
     Long findMostOppositeLikeId(Long likeId);
 

@@ -9,6 +9,8 @@ import com.github.wuangmai.negative.repository.GameRepository;
 import com.github.wuangmai.negative.repository.LikeRepository;
 import com.github.wuangmai.negative.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -21,6 +23,7 @@ import java.util.stream.Collectors;
 @RequestMapping("/search")
 @Slf4j
 public class SearchController {
+    //TODO CO TO SĄ ZA NAZWY?!?!?!?!
     private final UserRepository ur;
     private final LikeRepository lr;
     private final CompetitionRepository cr;
@@ -38,10 +41,18 @@ public class SearchController {
         return cr.findAllByCompetitionNotNull();
     }
 
+    //TODO Zasada: głupi kontroler, mądry serwis, nie odwrotnie (ale tutaj nie ma ... serwisów)
     @GetMapping()
     public String getSearchPage(@RequestParam String category, Principal principal, Model model) {
+        //TODO Przykład użycia zapytania, które może być sortowane i limitowane (SQL LIMIT + ORDER BY)
+        negatieveRepository.findAllByFirstLikeId(3L, PageRequest.of(0, 5, Sort.by(Sort.Direction.DESC, "hate")));
+
         User user = ur.findByName(principal.getName());
-        Like oneUserLike = user.getLikes().stream().filter(l -> l.getCategory().equals(category)).collect(Collectors.toList()).get(0);
+        //TODO Zapytanie na bazie zamiast pobierania wszystkiego i męczenia w Javie ;)
+        Like oneUserLike = user.getLikes()
+                .stream()
+                .filter(l -> l.getCategory().equals(category))
+                .collect(Collectors.toList()).get(0);
         Long oneMostOppositeUserLike = ur.findMostOppositeLikeId(oneUserLike.getId());
         List<User> listOfUsersWithMostOppositeLikes;
 

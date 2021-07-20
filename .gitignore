@@ -32,4 +32,6 @@ build/
 ### VS Code ###
 .vscode/
 
+#TODO Bardzo źle, bo teraz nie da się tej aplikacji uruchomić :)
+#TODO Wykorzystać eksternalizację danych zamiast ukrywać application.properties ;)
 src/main/resources/application.properties

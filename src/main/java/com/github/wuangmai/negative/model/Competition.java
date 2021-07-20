@@ -18,6 +18,7 @@ public class Competition {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    //TODO Lepiej name
     @NotBlank
     private String competition;
 }

@@ -26,6 +26,8 @@ public class LikesController {
     }
 
     @ModelAttribute("allPoliticalLikes")
+    //TODO Z tych kategoria lepiej zrobić jakieś stałe albo enuma lub pobierać je z bazy
+    //     (osobna encja Category)
     public List<Like> PoliticalLikes() {return lk.findAllByCategory("political");}
 
     @ModelAttribute("allEarthShapeLikes")
@@ -35,13 +37,18 @@ public class LikesController {
     public List<Like> vaccinesLikes() {return lk.findAllByCategory("vaccines");}
 
     @ModelAttribute("allLikes")
-    public List<Like> allLikes(){return  lk.findAll();}
+    public List<Like> allLikes(){
+        //TODO Jak pobieramy wszystkie lajki, to lepiej jest je pobrać wszystkie i z nich w javie
+        //     zbudować pozostałe model (o różnych kategoriach) niż robić osobne zapytanie
+        //     po każdą kategorię.
+        return  lk.findAll();}
 
     @GetMapping
     public String showLikesPage(){
         return "profil/likes";
     }
 
+    //TODO Zamiast luźnych parametrów żądania wykorzystać jakiś obiekt wrappujący np. LikeSettingsRequest albo LikeSettingsDto
     @PostMapping
     public String setLikesPage(Principal principal,
                                @RequestParam String political,
